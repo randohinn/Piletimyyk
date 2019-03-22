@@ -24,7 +24,6 @@ public class Main {
             int vaja = 0;
 
             try{
-
                 if (müüdudArv() >= 30) {
                     JOptionPane.showConfirmDialog(null,
                             "Kõik piletid on müüdud!",
@@ -43,7 +42,6 @@ public class Main {
                         else müüdudPiletid.append(", " + element.getKoha_nr());
                     }
                 }
-
 
                 String teadaanne;
                 if (müüdudPiletid.length() == 0) {
@@ -73,11 +71,9 @@ public class Main {
                     continue;
                 }
 
-
-
-                //Enne, kui hakatakse ostja soovitud arvu pileteid ostjale reaalselt pakkuda, tuleb kontrollida, kas
+                //Enne, kui hakatakse ostja soovitud arvu pileteid ostjale reaalselt pakkuma, tuleb kontrollida, kas
                 //nii palju pileteid jätkub.
-                //Juhul, kui järgijäänud piletite arv (piletite koguarv - müüdud arv) on väiksem, kui ostja soovitud
+                //Juhul, kui järgi jäänud piletite arv (piletite koguarv - müüdud arv) on väiksem, kui ostja soovitud
                 //(vaja) piletite arv, siis nii palju pole võimalik müüa. Kuvatakse vastav teade ja väljutakse programmist.
                 //See toimib ka juhul, kui müüdud arv on veel 0 ja kohe soovitakse üle 30 pileti osta.
                 if(piletid.size() - müüdudArv() < vaja) {
@@ -111,7 +107,6 @@ public class Main {
 
             //Kui soovitakse osta pileteid, siis
             if(on_ok == 0) { // Miks yes == 0 ?!?
-
                 //käime läbi kõik piletid ja kui müügiks pakutavate piletite Listis (myydavad) on samad piletid
                 //muudame nad staatusesse müüdud.
                 for (Pilet pilet : piletid) {
@@ -125,11 +120,7 @@ public class Main {
                                 kohanumbrid + ".",
                         "Piletiost sooritatud!", JOptionPane.DEFAULT_OPTION);
             }
-
         }
-
-
-
     }
 
     //Meetod, mis tagastab Listi, milles on Pilet tüüpi isendid, mida pakutakse antud korral müügiks.
