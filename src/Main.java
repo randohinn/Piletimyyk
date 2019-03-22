@@ -93,12 +93,14 @@ public class Main {
             //Loome Listi, et hoida ainult neid pileteid, mida pakume ostjatele müügiks.
             //Paneme all oleva meetodi abil sinna just nii palju pileteid, kui soovitakse antud korral osta.
             List<Pilet> myydavad = pakuMyygiks(vaja);
-            //Pakutavate piletite on ostja jaoks oluline vaid kohanumber, teeme selle Stringiks.
-            String kohanumbrid = "";
+            //Pakutavate piletite on ostja jaoks oluline vaid kohanumber, teeme selle Stringiks
+            StringBuilder kohanumbrid = new StringBuilder(50);
+
             for (Pilet pilet : myydavad) {
-                kohanumbrid += ", "+pilet.getKoha_nr();
-                kohanumbrid = kohanumbrid.replaceFirst("^, ", ""); //Regulaaravaldis,
-                // mille leidsime internetist. Selleks, et kaotada esimese kohanumbri ees olev koma ja tühik.
+                if (kohanumbrid.length() == 0) {//Et esimele müüdud piletile koma ja tühikut ei tuleks
+                    kohanumbrid.append(pilet.getKoha_nr());
+                }
+                else kohanumbrid.append(", " + pilet.getKoha_nr());
             }
 
             //Lisame ostja vastuse küsimusele int muutujasse, millel saavad olla väärtused 0 või 1.
